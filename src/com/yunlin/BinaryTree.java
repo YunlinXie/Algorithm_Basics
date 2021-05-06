@@ -110,14 +110,32 @@ public class BinaryTree {
         }
 
         @Override
-        public boolean equals(Object obj) {
-            return super.equals(obj);
+        public boolean equals(Object o) {
+            if (o == null || !(o instanceof Node<?>)) {
+                return false;
+            }
+            return equals(this.val, ((Node<?>) o).val)
+                    && equals(this.left, ((Node<?>) o).left)
+                    && equals(this.right, ((Node<?>) o).right);
+        }
+
+        private boolean equals(Object x, Object y) {
+            if (x == null) return y == null;
+            return x.equals(y);
         }
 
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
-
+            if (this == null) {
+                return "";
+            }
+            sb.append(this.val);
+            if (this.left != null)
+                sb.append(this.left.toString());
+            if (this.right != null)
+                sb.append(this.right.toString());
+            return sb.toString();
         }
     }
 
@@ -151,5 +169,10 @@ public class BinaryTree {
         System.out.println("inorder:" + res2);
         System.out.println("postorder:" + res3);
         System.out.println("BFS:" + res4);
+
+        Node<String> root1 = strToTree("4 1 0 n n 2 n 3 n n 5");
+        Node<String> root2 = strToTree("4 1 0 n n 2 n 3 n 5 n n");
+        System.out.println(root.equals(root1));
+        System.out.println(root.equals(root2));
     }
 }
