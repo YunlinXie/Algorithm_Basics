@@ -129,18 +129,6 @@ public class BinaryTree {
             return valueList;
     }
 
-//    public static TreeNode findParentNode(TreeNode root, TreeNode node) {
-//        if (root == null || node == null) return null;
-//        if (node == root) return null;
-//        TreeNode parent = root;
-//1
-//        if (parent.left.val == node.val || parent.right.val == node.val) {
-//            return parent;
-//        }
-//        parent = findParentNode(root.left, node);
-//        if (parent != null) return parent;
-//        return findParentNode(root.right, node);
-//    }
 
     public static TreeNode findParentNode(TreeNode root, TreeNode node) {
         if (root == null || node == null) return null;
